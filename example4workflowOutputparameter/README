@@ -1,0 +1,11 @@
+This will fail in default tempalte as we need to create SA and have to Give Role and RoleBinding Permissions.
+
+Better to create this in Argo NS and create a role binding
+
+kubectl create rolebinding default-admin --clusterrole=admin --serviceaccount=argo:default -n argo
+
+argo submit <output.yaml> -n argo
+
+argo list -n argo
+
+argo get <WF-Name> -n argo
